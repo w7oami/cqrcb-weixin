@@ -1,5 +1,6 @@
 package com.utils;
 
+import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.bean.WxAccessToken;
 import me.chanjar.weixin.mp.api.WxMpConfigStorage;
 import me.chanjar.weixin.mp.api.WxMpInMemoryConfigStorage;
@@ -49,5 +50,10 @@ public class WeiXinConfig {
             System.out.println(wxMpService.getAccessToken());
         }
         return wxMpService;
+    }
+
+    public static void main(String [] args) throws Exception {
+        String url = WeiXinConfig.getWxMpService().oauth2buildAuthorizationUrl(WxConsts.OAUTH2_SCOPE_BASE, "http://zhouji.ittun.com/cqrcb/active");
+        System.out.println(url);
     }
 }
