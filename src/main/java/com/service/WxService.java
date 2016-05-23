@@ -3,6 +3,7 @@ package com.service;
 import com.utils.HttpUtils;
 import com.utils.Logger;
 import com.utils.WeiXinConfig;
+import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.bean.WxJsapiSignature;
 import me.chanjar.weixin.common.util.StringUtils;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -87,6 +88,12 @@ public class WxService extends BaseService {
         return wxMpOAuth2AccessToken.getOpenId();
     }
 
+    /**
+     * 获取jsskd参数
+     * @param url
+     * @return
+     * @throws Exception
+     */
     public Map<String, Object> getJsApiConfig(String url) throws Exception {
         WxJsapiSignature wxJsapiSignature = wxMpService.createJsapiSignature(url);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -95,5 +102,15 @@ public class WxService extends BaseService {
         map.put("nonceStr", wxJsapiSignature.getNoncestr());
         map.put("signature", wxJsapiSignature.getTimestamp());
         return map;
+    }
+
+    /**
+     * 生成授权跳转链接
+     * @param redirect_uri
+     * @return
+     */
+    public String oauth2buildAuthorizationUrl(String redirect_uri) {
+        String url = wxMpService.oauth2buildAuthorizationUrl(WxConsts.OAUTH2_SCOPE_BASE, redirect_uri);
+        return url;
     }
 }
