@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.4.xsd"
+	>
+	
+	<!-- 自动扫描controller -->
+	<context:component-scan base-package="com.controller" />
+
+
+	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
+	<bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="contentType" value="text/html"/>
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+	
+	<!-- 参数注解拦截器 -->
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean class="com.annotation.resolver.UserMethodArgumentResolver" />
+		</mvc:argument-resolvers>
+		<mvc:message-converters>
+			<bean class="com.common.UTF8StringHttpMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<!-- 方法注解拦截器 -->
+	<mvc:interceptors>
+		<bean class="com.annotation.resolver.UserAuthHandlerInterceptorAdapter" />
+	</mvc:interceptors>
+
+	<mvc:default-servlet-handler/>
+	<!-- 静态文件 -->
+	<!-- 静态资源映射 -->
+	<mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
+</beans>
