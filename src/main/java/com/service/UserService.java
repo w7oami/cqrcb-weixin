@@ -18,10 +18,6 @@ public class UserService extends BaseService  {
 	
 	@Autowired
 	private SysUserMapper sysUserMapper;
-	
-	@Autowired
-	private CacheManager cacheManager;
-
 
 	public Map<String, Object> getUser(String id) {
 		Map<String, Object> map = jdbcTemplate.queryForMap("select * from sys_user where id = ?", id);

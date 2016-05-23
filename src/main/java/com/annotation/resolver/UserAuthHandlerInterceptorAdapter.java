@@ -3,19 +3,28 @@ package com.annotation.resolver;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.service.WxService;
+import com.utils.CookiesUtils;
 import com.utils.Logger;
+import com.utils.PropUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.annotation.model.UserRole;
 
+import java.util.Map;
+
 public class UserAuthHandlerInterceptorAdapter extends HandlerInterceptorAdapter {
+
+    @Autowired
+    WxService wxService;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object handler) throws Exception {
         boolean isWX = false;
-
+        String openid = null;
         if(request.getServletPath().indexOf("/static") == 0) {
             return true;
         }
@@ -24,18 +33,29 @@ public class UserAuthHandlerInterceptorAdapter extends HandlerInterceptorAdapter
             return true;
         }
 
-        if(null != request.getParameter("code") && null != request.getParameter("state")) {
-            String servletPath = request.getServletPath().substring(1, request.getServletPath().length());
-            Logger.debug("servlet地址：" + servletPath);
-            if(null == suiteId || (null != suiteTemp && !suiteId.equals(suiteTemp))) {
-                suiteId = suiteTemp;
-
-            }
-            if(null == userID || "null".equals(userID)) {
-                userID = weChatService.oauth2getUserInfo(corpId, suiteId, request.getParameter("code"));
-            }
-
+        openid = CookiesUtils.getCookieValue(request, "mobile_user");
+        if(null == openid) {
             isWX = true;
+        }
+
+        if(null != request.getParameter("code") && null != request.getParameter("state")) {
+            openid = wxService.getHTMLOpenID(openid, request.getParameter("code"));
+            isWX = true;
+        }
+
+        if(isWX) {
+            CookiesUtils.setCookie(request, response, "mobile_user", openid);
+            String url = PropUtils.getProperty("weixin.url");
+            String params = request.getQueryString();
+            if(null != params) {
+                url += request.getServletPath() + "?" + params;
+            } else {
+                url += request.getServletPath();
+            }
+            Logger.debug("request请求完整地址：" + url);
+            Map<String, Object> jsMap = wxService.getJsApiConfig(url);
+            request.setAttribute("openid", openid);
+            request.setAttribute("jsApiConfig", jsMap);
         }
 
 		if(handler.getClass().isAssignableFrom(HandlerMethod.class)){
