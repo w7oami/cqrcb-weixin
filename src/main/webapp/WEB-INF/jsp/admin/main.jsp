@@ -25,7 +25,7 @@
         <a href="main" class="navbar-brand">
             <small>
                 <i class="fa fa-leaf"></i>
-                居间商管理平台
+                农商行活动后台
             </small>
         </a>
     </div>
@@ -59,10 +59,10 @@
         <ul class="nav nav-list" style="top: 0px;">
             <c:if test="${user.username == 'admin'}">
                 <li>
-                    <a href="javascript:;" class="dropdown-toggle" onclick="url('sysUserList')">
+                    <a href="javascript:;" class="dropdown-toggle" onclick="url('userListView')">
                         <i class="menu-icon fa fa-users"></i>
                     <span class="menu-text">
-                        账户管理
+                        用户查询
                     </span>
                     </a>
                 </li>
@@ -71,7 +71,7 @@
                 <a href="javascript:;" class="dropdown-toggle" onclick="url('userList')">
                     <i class="menu-icon fa fa-user"></i>
                     <span class="menu-text">
-                        会员管理
+                        每周积分榜
                     </span>
                 </a>
             </li>
@@ -79,31 +79,7 @@
                 <a href="javascript:;" class="dropdown-toggle" onclick="url('rechargeList')">
                     <i class="menu-icon fa fa-list-alt"></i>
                     <span class="menu-text">
-                        充值列表
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" class="dropdown-toggle" onclick="url('rechargeOverList')">
-                    <i class="menu-icon fa fa-list"></i>
-                    <span class="menu-text">
-                        充值上账信息
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" class="dropdown-toggle" onclick="url('drawList')">
-                    <i class="menu-icon fa fa-credit-card"></i>
-                    <span class="menu-text">
-                        提现列表
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" class="dropdown-toggle" onclick="url('drawOverList')">
-                    <i class="menu-icon fa fa-money"></i>
-                    <span class="menu-text">
-                        提现放款信息
+                        每周勋章榜
                     </span>
                 </a>
             </li>

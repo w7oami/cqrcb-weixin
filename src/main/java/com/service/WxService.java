@@ -68,7 +68,7 @@ public class WxService extends BaseService {
         Element el = null;
         if(null != openid) {
             el = cache.get(openid);
-            if(null == el) {
+            if(null != el) {
                 wxMpOAuth2AccessToken = (WxMpOAuth2AccessToken) el.getObjectValue();
             }
             if (null == wxMpOAuth2AccessToken) {
@@ -103,7 +103,7 @@ public class WxService extends BaseService {
         map.put("appId", wxJsapiSignature.getAppid());
         map.put("timestamp", wxJsapiSignature.getTimestamp());
         map.put("nonceStr", wxJsapiSignature.getNoncestr());
-        map.put("signature", wxJsapiSignature.getTimestamp());
+        map.put("signature", wxJsapiSignature.getSignature());
         return map;
     }
 

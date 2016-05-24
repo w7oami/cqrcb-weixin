@@ -14,26 +14,33 @@
     <link rel="stylesheet" href="${path}/static/Ace/css/ace.css" />
     <%@ include file="/WEB-INF/jsp/common/import-js.jsp" %>
     <script type="text/javascript" src="${path}/static/script/resize/iframeResizer.contentWindow.js" ></script>
-    <script type="text/javascript" src="${path}/static/script/admin/user/userList.js" ></script>
+    <script type="text/javascript" src="${path}/static/script/My97DatePicker/WdatePicker.js" ></script>
 </head>
 <body class="no-skin" style="background-color: white;">
 <div class="row">
     <div class="col-xs-12">
         <form action="userList" id="form" name="form" method="post">
-            <input type="text" name="account" value="${account}" style="margin-left: 12px;"  placeholder="账号/姓名/手机号"/>
+            开始时间：
+            <input type="text" id="startTime" name="startTime" size="16" class="form_datetime" value="${startTime}"
+                   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"
+            />--
+            <input type="text" id="endTime" name="endTime" size="16" class="form_datetime" value="${endTime}"
+                   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"
+            />
+            手机号码：<input type="text" name="account" value="${account}" style="margin-left: 12px;"  placeholder="手机号"/>
             <button type="submit" id="search" class="btn btn-white btn-info btn-round" style="margin-left: 12px;margin-bottom: 5px;">
                 <i class="ace-icon fa fa-search bigger-120 green"></i>
                 查询
             </button>
         </form>
         <div class="widget-box widget-color-blue2 ui-sortable-handle">
-            <!-- 设置table颜色 -->
+            <!-- 设置table颜色
             <div class="widget-header">
                 <h5 class="widget-title bigger lighter">
                     <i class="ace-icon fa fa-table"></i>
                     会员管理
                 </h5>
-            </div>
+            </div>-->
 
             <!-- table内容 -->
             <div class="widget-body">
