@@ -16,6 +16,6 @@ public class CqrcbController extends BaseController {
     public String activeInit(@RequestParam(value = "code") String code,
                              @RequestParam(value = "state") String state,
                              HttpServletRequest request) {
-        return "";
+        return "mobile/success";
     }
 }

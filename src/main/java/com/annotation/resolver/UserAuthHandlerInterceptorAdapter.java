@@ -40,6 +40,7 @@ public class UserAuthHandlerInterceptorAdapter extends HandlerInterceptorAdapter
 
         if(null != request.getParameter("code") && null != request.getParameter("state")) {
             openid = wxService.getHTMLOpenID(openid, request.getParameter("code"));
+            System.out.println(openid);
             isWX = true;
         }
 

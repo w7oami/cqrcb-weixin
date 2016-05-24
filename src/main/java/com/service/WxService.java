@@ -8,6 +8,7 @@ import me.chanjar.weixin.common.bean.WxJsapiSignature;
 import me.chanjar.weixin.common.util.StringUtils;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.result.WxMpOAuth2AccessToken;
+import me.chanjar.weixin.mp.bean.result.WxMpUser;
 import me.chanjar.weixin.mp.util.crypto.WxMpCryptUtil;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.Element;
@@ -61,6 +62,7 @@ public class WxService extends BaseService {
      * @throws Exception
      */
     public String getHTMLOpenID(String openid, String code) throws Exception {
+        wxMpService = WeiXinConfig.getWxMpService();
         Cache cache = cacheManager.getCache("ehcache_3600s");
         WxMpOAuth2AccessToken wxMpOAuth2AccessToken = null;
         Element el = null;
@@ -95,6 +97,7 @@ public class WxService extends BaseService {
      * @throws Exception
      */
     public Map<String, Object> getJsApiConfig(String url) throws Exception {
+        wxMpService = WeiXinConfig.getWxMpService();
         WxJsapiSignature wxJsapiSignature = wxMpService.createJsapiSignature(url);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("appId", wxJsapiSignature.getAppid());
@@ -109,7 +112,8 @@ public class WxService extends BaseService {
      * @param redirect_uri
      * @return
      */
-    public String oauth2buildAuthorizationUrl(String redirect_uri) {
+    public String oauth2buildAuthorizationUrl(String redirect_uri) throws Exception {
+        wxMpService = WeiXinConfig.getWxMpService();
         String url = wxMpService.oauth2buildAuthorizationUrl(WxConsts.OAUTH2_SCOPE_BASE, redirect_uri);
         return url;
     }

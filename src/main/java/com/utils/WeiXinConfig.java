@@ -53,7 +53,7 @@ public class WeiXinConfig {
     }
 
     public static void main(String [] args) throws Exception {
-        String url = WeiXinConfig.getWxMpService().oauth2buildAuthorizationUrl(WxConsts.OAUTH2_SCOPE_BASE, "http://zhouji.ittun.com/cqrcb/active");
+        String url = WeiXinConfig.getWxMpService().oauth2buildAuthorizationUrl("http://zhouji.ittun.com/cqrcb/active", WxConsts.OAUTH2_SCOPE_BASE, null);
         System.out.println(url);
     }
 }
