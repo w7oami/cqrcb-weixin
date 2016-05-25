@@ -1,7 +1,9 @@
 package com.dao;
 
+import com.dao.common.MyBatisMapper;
 import com.model.GGame;
 
+@MyBatisMapper
 public interface GGameMapper {
     int deleteByPrimaryKey(Long id);
 
