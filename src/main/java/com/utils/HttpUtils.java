@@ -42,8 +42,8 @@ public class HttpUtils {
 	 * @param url   url地址
 	 * @return      返回map
 	 */
-	public static Map<String, String> postMethodByMap(String url, Map<String, String> params) {
-		Map<String, String> map = new HashMap<String, String>();
+	public static Map<String, Object> postMethodByMap(String url, Map<String, String> params) {
+		Map<String, Object> map = new HashMap<String, Object>();
 		String resultContent =postMethodByStr(url, params);
 		map = JsonUtils.json2Map(resultContent);
 		return map;
@@ -56,8 +56,8 @@ public class HttpUtils {
 	 * @param paramJson json参数
 	 * @return      返回map
 	 */
-	public static Map<String, String> postMethodByMap(String url,String paramJson) {
-		Map<String, String> map = new HashMap<String, String>();
+	public static Map<String, Object> postMethodByMap(String url,String paramJson) {
+		Map<String, Object> map = new HashMap<String, Object>();
 		String resultContent =postMethodByStr(url, paramJson);
 		map = JsonUtils.json2Map(resultContent);
 		return map;
@@ -215,7 +215,7 @@ public class HttpUtils {
 	}
 
 	// GET方式请求
-	public static Map<String, String> get2Map(String url) throws Exception {
+	public static Map<String, Object> get2Map(String url) throws Exception {
 		String str = getUrlContentByGet(url);
 		System.out.println(str);
 		return JsonUtils.json2Map(str);

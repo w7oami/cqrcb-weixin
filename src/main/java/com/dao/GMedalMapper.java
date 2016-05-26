@@ -1,7 +1,9 @@
 package com.dao;
 
+import com.dao.common.MyBatisMapper;
 import com.model.GMedal;
 
+@MyBatisMapper
 public interface GMedalMapper {
     int deleteByPrimaryKey(Integer id);
 

@@ -24,15 +24,13 @@
   <insert id="insert" parameterType="com.model.GUserMedal" >
     insert into g_user_medal (id, userId, statue, 
       number, create_time)
-    values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, #{statue,jdbcType=INTEGER}, 
+    values (u_m_seq.nextval, #{userid,jdbcType=BIGINT}, #{statue,jdbcType=INTEGER},
       #{number,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.model.GUserMedal" >
     insert into g_user_medal
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
+      u_m_seq.nextval,
       <if test="userid != null" >
         userId,
       </if>

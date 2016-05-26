@@ -117,4 +117,12 @@ public class WxService extends BaseService {
         String url = wxMpService.oauth2buildAuthorizationUrl(WxConsts.OAUTH2_SCOPE_BASE, redirect_uri);
         return url;
     }
+
+    public boolean authOpenId(String openId) throws Exception {
+        wxMpService = WeiXinConfig.getWxMpService();
+        String token = wxMpService.getAccessToken();
+        String url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=" + token + "&openid=" + openId;
+        Map map = HttpUtils.get2Map(url);
+        return Integer.valueOf(map.get("subscribe").toString()) == 1;
+    }
 }

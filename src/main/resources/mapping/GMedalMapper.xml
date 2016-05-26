@@ -22,15 +22,13 @@
   <insert id="insert" parameterType="com.model.GMedal" >
     insert into g_medal (id, name, need_point
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{needPoint,jdbcType=BIGINT}
+    values (g_medal.nextval, #{name,jdbcType=VARCHAR}, #{needPoint,jdbcType=BIGINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.model.GMedal" >
     insert into g_medal
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
+      g_medal.nextval,
       <if test="name != null" >
         name,
       </if>

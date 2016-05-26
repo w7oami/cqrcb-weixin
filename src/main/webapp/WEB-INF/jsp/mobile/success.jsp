@@ -19,7 +19,7 @@
   </div>
   <div class="weui_opr_area">
     <p class="weui_btn_area">
-      <a href="javascript:;" class="weui_btn weui_btn_primary">确定</a>
+      <a href="${path}${toUrl}" class="weui_btn weui_btn_primary">确定</a>
     </p>
   </div>
   <div class="weui_extra_area">

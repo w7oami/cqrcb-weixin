@@ -27,16 +27,14 @@
     insert into g_user (id, wxId, name, 
       phone, point, create_time, 
       update_time)
-    values (#{id,jdbcType=BIGINT}, #{wxid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    values (user_seq.nextval, #{wxid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
       #{phone,jdbcType=VARCHAR}, #{point,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.model.GUser" >
     insert into g_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
+      user_seq.nextval,
       <if test="wxid != null" >
         wxId,
       </if>
@@ -114,4 +112,7 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectByOpenID" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from g_user where wxId = #{wxid, jdbcType=VARCHAR}
+  </select>
 </mapper>

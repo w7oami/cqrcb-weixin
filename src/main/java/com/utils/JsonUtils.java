@@ -40,12 +40,12 @@ public class JsonUtils {
 		}
 	}
 
-	public static Map<String, String> json2Map(String json) {
-		Map<String, String> map = new HashMap<String, String>();
+	public static Map<String, Object> json2Map(String json) {
+		Map<String, Object> map = new HashMap<String, Object>();
 		try {
 			if (StringUtils.isNotBlank(json)) {
 				map = objectMapper.readValue(json,
-						new TypeReference<Map<String, String>>() {
+						new TypeReference<Map<String, Object>>() {
 						});
 			}
 			return map;

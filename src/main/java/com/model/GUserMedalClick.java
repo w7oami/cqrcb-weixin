@@ -1,11 +1,12 @@
 package com.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class GUserMedalClick {
     private Long id;
 
-    private Long medalid;
+    private Long userMedalid;
 
     private String wxid;
 
@@ -19,12 +20,12 @@ public class GUserMedalClick {
         this.id = id;
     }
 
-    public Long getMedalid() {
-        return medalid;
+    public Long getUserMedalid() {
+        return userMedalid;
     }
 
-    public void setMedalid(Long medalid) {
-        this.medalid = medalid;
+    public void setUserMedalid(Long userMedalid) {
+        this.userMedalid = userMedalid;
     }
 
     public String getWxid() {

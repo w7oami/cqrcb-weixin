@@ -23,15 +23,13 @@
   <insert id="insert" parameterType="com.model.GGame">
     insert into g_game (id, userId, point, 
       create_time)
-    values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, #{point,jdbcType=BIGINT}, 
+    values (game_seq.nextval, #{userid,jdbcType=BIGINT}, #{point,jdbcType=BIGINT},
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.model.GGame">
     insert into g_game
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
+      game_seq.nextval,
       <if test="userid != null">
         userId,
       </if>

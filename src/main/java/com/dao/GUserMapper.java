@@ -1,7 +1,9 @@
 package com.dao;
 
+import com.dao.common.MyBatisMapper;
 import com.model.GUser;
 
+@MyBatisMapper
 public interface GUserMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,6 @@ public interface GUserMapper {
     int updateByPrimaryKeySelective(GUser record);
 
     int updateByPrimaryKey(GUser record);
+
+    GUser selectByOpenID(String wxId);
 }

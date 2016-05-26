@@ -34,7 +34,7 @@ public class UserAuthHandlerInterceptorAdapter extends HandlerInterceptorAdapter
         }
 
         openid = CookiesUtils.getCookieValue(request, "mobile_user");
-        if(null == openid) {
+        if(null != openid) {
             isWX = true;
         }
 
