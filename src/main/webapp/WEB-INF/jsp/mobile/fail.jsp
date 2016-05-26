@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=no">
 	<link rel="stylesheet" href="http://cdn.bootcss.com/weui/0.4.0/style/weui.css" />
-	<title>操作成功</title>
+	<title>操作失败</title>
 </head>
 <body>
 <div class="weui_msg">

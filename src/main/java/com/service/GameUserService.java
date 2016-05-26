@@ -17,4 +17,8 @@ public class GameUserService extends BaseService {
     public GUser getUserByWX(String openID) {
         return gUserMapper.selectByOpenID(openID);
     }
+
+    public void saveGameUser(GUser gUser) {
+        gUserMapper.insert(gUser);
+    }
 }
