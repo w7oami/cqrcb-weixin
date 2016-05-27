@@ -1,5 +1,7 @@
 package com.utils;
 
+import java.util.Random;
+
 /**
  * Created by Administrator on 2015/12/6 0006.
  */
@@ -20,5 +22,16 @@ public class NumberUtils extends org.springframework.util.NumberUtils{
             return false;
         }
         return true;
+    }
+
+    /**
+     * 生成一定返回的随机数
+     * @param min
+     * @param max
+     * @return
+     */
+    public static int randomInt(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max)%(max-min+1) + min;
     }
 }
