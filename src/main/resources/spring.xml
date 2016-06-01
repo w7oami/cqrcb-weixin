@@ -24,8 +24,8 @@
 	<!-- 自动扫描 -->
 	<context:component-scan base-package="com.service" />
 	
-	<!-- 扫描定时任务-->
-	<context:component-scan base-package="com.task" /> 
+	<!-- 扫描定时任务
+	<context:component-scan base-package="com.task" /> -->
 	
 	<!-- ehcache配置 -->
 	<import resource="classpath:cache.xml" /> 

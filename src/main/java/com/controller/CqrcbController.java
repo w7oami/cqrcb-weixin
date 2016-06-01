@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.google.gson.Gson;
 import com.model.GUser;
 import com.service.GameUserService;
 import com.service.WxService;
@@ -8,13 +9,12 @@ import com.utils.WeiXinConfig;
 import me.chanjar.weixin.common.api.WxConsts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/5/23.
@@ -31,17 +31,22 @@ public class CqrcbController extends BaseController {
     @RequestMapping(value = "/cqrcb/active")
     public String activeInit(@RequestParam(value = "code") String code,
                              @RequestParam(value = "state") String state,
-                             HttpServletRequest request) {
+                             HttpServletRequest request) throws Exception {
         String openId = (String)request.getAttribute("openid");
         GUser user = gameUserService.getUserByWX(openId);
-        return "mobile/inputView";
+        boolean isAuth = wxService.authOpenId(openId);
+        request.setAttribute("isAuth", isAuth);
+        request.setAttribute("isHas", null != user);
+        return "mobile/index";
     }
 
     @RequestMapping(value = "/cqrcb/authOpenId")
+    @ResponseBody
     public String authOpenId(HttpServletRequest request) throws Exception {
         String openId = (String)request.getAttribute("openid");
         boolean isAuth = wxService.authOpenId(openId);
-        return null;
+
+        return "{isAuth : " + isAuth + "}";
     }
 
     @RequestMapping(value = "/cqrcb/redirect/{url}")
@@ -53,21 +58,45 @@ public class CqrcbController extends BaseController {
 
     @RequestMapping(value = "/cqrcb/gameView")
     public String gameView(HttpServletRequest request) {
-        return "mobile/fail";
+        return "mobile/gameStart";
     }
 
     @RequestMapping(value = "/cqrcb/saveUser")
+    @ResponseBody
     public String insertGameUser(@RequestParam(value = "name") String name,
                                  @RequestParam(value = "phone") String phone,
                                  HttpServletRequest request) {
         String openId = (String)request.getAttribute("openid");
-        GUser user = new GUser();
+        GUser user = gameUserService.getUserByWX(openId);
+        if(null != user) {
+            return "userMore";
+        }
+
+        int count = gameUserService.countUserByPhone(phone);
+        if(count > 0) {
+            return "phoneMore";
+        }
+        user = new GUser();
         user.setName(name);
         user.setWxid(openId);
         user.setPhone(phone);
         user.setPoint(0l);
         user.setCreateTime(new Date());
         gameUserService.saveGameUser(user);
-        return "mobile/success";
+        return "ok";
+    }
+
+    /**
+     * 获取当次分数集合
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "getRandomPoint")
+    @ResponseBody
+    public String getRandomPoint(HttpServletRequest request) {
+        String openId = (String)request.getAttribute("openid");
+        List<Map<String, Object>> list = gameUserService.getRandomPoint(openId);
+
+        return new Gson().toJson(list);
     }
 }

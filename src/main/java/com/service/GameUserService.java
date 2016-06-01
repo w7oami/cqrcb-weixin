@@ -25,6 +25,10 @@ public class GameUserService extends BaseService {
         return gUserMapper.selectByOpenID(openID);
     }
 
+    public int countUserByPhone(String phone) {
+        return gUserMapper.countUserByPhone(phone);
+    }
+
     public void saveGameUser(GUser gUser) {
         gUserMapper.insert(gUser);
     }
@@ -32,11 +36,11 @@ public class GameUserService extends BaseService {
     public List<Map<String, Object>> getRandomPoint(String openID) {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
-        int max=15;
+        int max=20;
         int min=5;
 
         int count = 35;
-        int sum = 370;
+        int sum = 500;
 
         int _s = 0;
 

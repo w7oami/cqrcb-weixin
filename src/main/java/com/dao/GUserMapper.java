@@ -18,4 +18,6 @@ public interface GUserMapper {
     int updateByPrimaryKey(GUser record);
 
     GUser selectByOpenID(String wxId);
+
+    int countUserByPhone(String phone);
 }

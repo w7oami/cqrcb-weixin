@@ -115,4 +115,8 @@
   <select id="selectByOpenID" parameterType="java.lang.String" resultMap="BaseResultMap">
     select * from g_user where wxId = #{wxid, jdbcType=VARCHAR}
   </select>
+
+  <select id="countUserByPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(0) from g_user where phone = #{phone, jdbcType=VARCHAR}
+  </select>
 </mapper>
