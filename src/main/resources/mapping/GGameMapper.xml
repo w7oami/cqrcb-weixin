@@ -73,8 +73,12 @@
   <update id="updateByPrimaryKey" parameterType="com.model.GGame">
     update g_game
     set userId = #{userid,jdbcType=BIGINT},
+    set userId = #{userid,jdbcType=BIGINT},
       point = #{point,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="getUserGameNumber" parameterType="java.lang.Long" resultType="java.lang.Integer">
+    select count(0) from g_game where userId = #{userid, jdbcType=BIGINT} and to_char(create_time, 'yyyy-mm-dd') = to_char(sysdate, 'yyyy-mm-dd')
+  </select>
 </mapper>

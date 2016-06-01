@@ -28,6 +28,14 @@ public class CqrcbController extends BaseController {
     @Autowired
     private GameUserService gameUserService;
 
+    /**
+     * 首页
+     * @param code
+     * @param state
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/cqrcb/active")
     public String activeInit(@RequestParam(value = "code") String code,
                              @RequestParam(value = "state") String state,
@@ -40,6 +48,12 @@ public class CqrcbController extends BaseController {
         return "mobile/index";
     }
 
+    /**
+     * 验证用户是否关注
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/cqrcb/authOpenId")
     @ResponseBody
     public String authOpenId(HttpServletRequest request) throws Exception {
@@ -49,6 +63,12 @@ public class CqrcbController extends BaseController {
         return "{isAuth : " + isAuth + "}";
     }
 
+    /**
+     * 跳转
+     * @param url
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/cqrcb/redirect/{url}")
     public String redirectUrl(@PathVariable(value = "url") String url) throws Exception {
         url = PropUtils.getProperty("weixin." + url);
@@ -56,11 +76,26 @@ public class CqrcbController extends BaseController {
         return "redirect:" + redirect;
     }
 
+    /**
+     * 开始游戏准备界面
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/cqrcb/gameView")
     public String gameView(HttpServletRequest request) {
+        String openId = (String)request.getAttribute("openid");
+        int count = gameUserService.getUserGameNumber(openId);
+        request.setAttribute("gameCount", count);
         return "mobile/gameStart";
     }
 
+    /**
+     * 保存用户信息
+     * @param name
+     * @param phone
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/cqrcb/saveUser")
     @ResponseBody
     public String insertGameUser(@RequestParam(value = "name") String name,
@@ -87,16 +122,32 @@ public class CqrcbController extends BaseController {
     }
 
     /**
+     * 游戏界面
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/cqrcb/game")
+    public String game(HttpServletRequest request) {
+        String openId = (String)request.getAttribute("openid");
+        return "mobile/game";
+    }
+
+    /**
      * 获取当次分数集合
      * @param request
      * @return
      */
-    @RequestMapping(value = "getRandomPoint")
+    @RequestMapping(value = "/cqrcb/getRandomPoint")
     @ResponseBody
     public String getRandomPoint(HttpServletRequest request) {
         String openId = (String)request.getAttribute("openid");
         List<Map<String, Object>> list = gameUserService.getRandomPoint(openId);
 
         return new Gson().toJson(list);
+    }
+
+    @RequestMapping(value = "/cqrcb/fail")
+    public String redirectFail() {
+        return "mobile/fail";
     }
 }

@@ -33,6 +33,10 @@ public class UserAuthHandlerInterceptorAdapter extends HandlerInterceptorAdapter
             return true;
         }
 
+        if(request.getServletPath().indexOf("/fail") > 0) {
+            return true;
+        }
+
         openid = CookiesUtils.getCookieValue(request, "mobile_user");
         if(null != openid) {
             isWX = true;
@@ -57,6 +61,9 @@ public class UserAuthHandlerInterceptorAdapter extends HandlerInterceptorAdapter
             Map<String, Object> jsMap = wxService.getJsApiConfig(url);
             request.setAttribute("openid", openid);
             request.setAttribute("jsApiConfig", jsMap);
+        } else {
+            response.sendRedirect("/cqrcb/fail");
+            return false;
         }
 
 		if(handler.getClass().isAssignableFrom(HandlerMethod.class)){

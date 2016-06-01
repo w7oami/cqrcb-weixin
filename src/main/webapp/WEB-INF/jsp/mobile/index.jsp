@@ -91,6 +91,9 @@
                 $.hideLoading();
                 if("ok" == data) {
                     $.toast("提交成功!");
+                    setTimeout(function() {
+                        window.location.href = '${path}' + "/cqrcb/gameView";
+                    }, 2000);
                 } else {
                     if("userMore" == data) {
                         $.toast("微信号重复!", "cancel");

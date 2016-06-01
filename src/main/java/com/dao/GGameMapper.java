@@ -16,4 +16,6 @@ public interface GGameMapper {
     int updateByPrimaryKeySelective(GGame record);
 
     int updateByPrimaryKey(GGame record);
+
+    int getUserGameNumber(Long userid);
 }

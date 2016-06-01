@@ -13,21 +13,22 @@
     <div class="startpic"><img src="${path}/static/images/gmbg_01.jpg"></div>
     <div class="startbtn">
         <div class="stb_ctn">
-            <p>剩余次数：10次</p>
-            <a href="" class="st_start"><img src="${path}/static/images/start_01.png"></a>
+            <p>剩余次数：${10 - gameCount}次</p>
+            <a href="${path}/cqrcb/game" class="st_start"><img src="${path}/static/images/start_01.png"></a>
             <div class="st_link">
-                <a href=""><img src="${path}/static/images/start_02.png"></a>
+                <a href="${path}/"><img src="${path}/static/images/start_02.png"></a>
             </div>
         </div>
         <img src="${path}/static/images/gmbg_02.jpg" class="startbg">
     </div>
     <div class="startfont">
         <img src="${path}/static/images/gmbg_03.jpg" class="startbg">
-        <p>游戏介绍：<i></i>1.每点击一个气球，随机获取5-15分；<i></i>2.游戏时长20s，每天3次；试一试不限次数，获得积分不累计；</p>
+        <p>游戏介绍：<i></i>1.每点击一个气球，随机获取5-20分；<i></i>2.游戏时长20s，每天10次；</p>
     </div>
 </div>
 </body>
 <%@ include file="/WEB-INF/jsp/common/import-js.jsp" %>
+
 </html>
 
 

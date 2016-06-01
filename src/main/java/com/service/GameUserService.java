@@ -1,5 +1,6 @@
 package com.service;
 
+import com.dao.GGameMapper;
 import com.dao.GUserMapper;
 import com.model.GUser;
 import com.utils.NumberUtils;
@@ -21,6 +22,9 @@ public class GameUserService extends BaseService {
     @Autowired
     private GUserMapper gUserMapper;
 
+    @Autowired
+    private GGameMapper gGameMapper;
+
     public GUser getUserByWX(String openID) {
         return gUserMapper.selectByOpenID(openID);
     }
@@ -31,6 +35,15 @@ public class GameUserService extends BaseService {
 
     public void saveGameUser(GUser gUser) {
         gUserMapper.insert(gUser);
+    }
+
+    public int getUserGameNumber(String openID) {
+        GUser user = getUserByWX(openID);
+        int count = 0;
+        if(null != user) {
+            count = gGameMapper.getUserGameNumber(user.getId());
+        }
+        return count;
     }
 
     public List<Map<String, Object>> getRandomPoint(String openID) {
