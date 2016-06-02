@@ -16,7 +16,7 @@
             <p>剩余次数：${10 - gameCount}次</p>
             <a href="${path}/cqrcb/game" class="st_start"><img src="${path}/static/images/start_01.png"></a>
             <div class="st_link">
-                <a href="${path}/"><img src="${path}/static/images/start_02.png"></a>
+                <a href="${path}/cqrcb/showRank"><img src="${path}/static/images/start_02.png"></a>
             </div>
         </div>
         <img src="${path}/static/images/gmbg_02.jpg" class="startbg">

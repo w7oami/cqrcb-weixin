@@ -25,7 +25,7 @@ public class UserAuthHandlerInterceptorAdapter extends HandlerInterceptorAdapter
 			Object handler) throws Exception {
         boolean isWX = false;
         String openid = null;
-        if(request.getServletPath().indexOf("/static") == 0) {
+        if(request.getServletPath().indexOf("/static") >= 0) {
             return true;
         }
 

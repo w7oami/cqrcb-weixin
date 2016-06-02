@@ -4,14 +4,19 @@
 body { position: relative;}
 .gm_bg { width: 100%; min-width: 320px; max-width: 640px; margin: 0 auto;}
 .gm_bg img { width: 100%;}
-.gm_box { width: 100%; min-width: 320px; max-width: 640px; margin: 0 auto; position: relative;}
+.gm_box { width: 100%; min-width: 320px; max-width: 640px; margin: 0 auto; position: relative; overflow: hidden;}
 .gm_time { width: 110px; height: 70px; background: url(../images/gm_time.png) no-repeat; position: absolute; right: 10px; font-size: 34px; color: #fff; top: 10px; line-height: 85px; padding-left: 80px; background-size: 100%;  }
 .gm_score { width:80px; height: 70px; background: url(../images/gm_score.png) no-repeat; position: absolute; left: 10px; font-size: 34px; color: #fff; top: 10px; line-height: 85px; padding-left: 85px; background-size: 100%; }
 .gm_ball { width: 100%; height: 0; position:relative;}
 .gm_ballbox { position: absolute; width: 29%;}
 .gm_ballbox i { display: block; width: 100%; font-size: 36px; color: #ffd92c; font-style: normal; text-align: center; font-weight: bold;  }
 .gm_ball img { width: 100%; }
-
+.game_num img { width: 33%; display: block; margin: 200px auto; }
+.sc_num { width: 100%; height: auto;  position: absolute; left: 0; top: 40%; text-align: center;}
+.sc_num p { width: 100%; text-align: center; font-size: 28px; color: #9e0000;}
+.sc_num p i { font-style: normal; color: #9e0000; padding: 0 5px; margin-bottom: 20px;}
+.sc_btn  { margin-top: 20px;}
+.sc_btn img { margin: 0 10px; width: 24%;}
 /*游戏开始页*/
 .start { width: 100%; max-width: 640px; min-width: 320px; margin: 0 auto; position: relative; overflow: hidden;}
 .startpic { width: 100%; height: auto;}

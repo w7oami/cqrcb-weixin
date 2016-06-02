@@ -12,9 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Administrator on 2016/5/23.
@@ -141,13 +139,43 @@ public class CqrcbController extends BaseController {
     @ResponseBody
     public String getRandomPoint(HttpServletRequest request) {
         String openId = (String)request.getAttribute("openid");
-        List<Map<String, Object>> list = gameUserService.getRandomPoint(openId);
-
+        int count = gameUserService.getUserGameNumber(openId);
+        List<Map<String, Object>> list = null;
+        if(count < 10) {
+            list = gameUserService.getRandomPoint(openId);
+        } else {
+            list = new ArrayList<Map<String, Object>>();
+        }
         return new Gson().toJson(list);
+    }
+
+    @RequestMapping(value = "/cqrcb/showRank")
+    public String showRank() {
+        return "mobile/rank";
     }
 
     @RequestMapping(value = "/cqrcb/fail")
     public String redirectFail() {
         return "mobile/fail";
+    }
+
+
+    @RequestMapping(value = "/cqrcb/updateScore", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateScore(@RequestParam(value = "score") Integer score,
+                              HttpServletRequest request) {
+        Map<String, String> result = new HashMap<String, String>();
+        String openId = (String)request.getAttribute("openid");
+        GUser user = gameUserService.getUserByWX(openId);
+        if(null == user) {
+            result.put("code", "userIsNull");
+        } else {
+            int count = gameUserService.getUserGameNumber(openId);
+
+            result.put("count", count + "");
+            result.put("code", "ok");
+            result.put("score", score + "");
+        }
+        return new Gson().toJson(result);
     }
 }
