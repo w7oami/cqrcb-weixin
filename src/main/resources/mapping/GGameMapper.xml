@@ -24,7 +24,7 @@
     insert into g_game (id, userId, point, 
       create_time)
     values (game_seq.nextval, #{userid,jdbcType=BIGINT}, #{point,jdbcType=BIGINT},
-      #{createTime,jdbcType=TIMESTAMP})
+      sysdate)
   </insert>
   <insert id="insertSelective" parameterType="com.model.GGame">
     insert into g_game
@@ -51,7 +51,7 @@
         #{point,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        sysdate,
       </if>
     </trim>
   </insert>
@@ -65,7 +65,7 @@
         point = #{point,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = sysdate,
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -75,7 +75,7 @@
     set userId = #{userid,jdbcType=BIGINT},
     set userId = #{userid,jdbcType=BIGINT},
       point = #{point,jdbcType=BIGINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = sysdate
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="getUserGameNumber" parameterType="java.lang.Long" resultType="java.lang.Integer">

@@ -114,7 +114,6 @@ public class CqrcbController extends BaseController {
         user.setWxid(openId);
         user.setPhone(phone);
         user.setPoint(0l);
-        user.setCreateTime(new Date());
         gameUserService.saveGameUser(user);
         return "ok";
     }
@@ -171,7 +170,7 @@ public class CqrcbController extends BaseController {
             result.put("code", "userIsNull");
         } else {
             int count = gameUserService.getUserGameNumber(openId);
-
+            gameUserService.insertScore(user.getId(), score);
             result.put("count", count + "");
             result.put("code", "ok");
             result.put("score", score + "");

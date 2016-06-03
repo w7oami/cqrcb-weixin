@@ -28,8 +28,8 @@
       phone, point, create_time, 
       update_time)
     values (user_seq.nextval, #{wxid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
-      #{phone,jdbcType=VARCHAR}, #{point,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{phone,jdbcType=VARCHAR}, #{point,jdbcType=BIGINT}, sysdate,
+      sysdate)
   </insert>
   <insert id="insertSelective" parameterType="com.model.GUser" >
     insert into g_user
@@ -71,7 +71,7 @@
         #{point,jdbcType=BIGINT},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+        sysdate,,
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
@@ -97,7 +97,7 @@
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = sysdate,
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -109,7 +109,7 @@
       phone = #{phone,jdbcType=VARCHAR},
       point = #{point,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = sysdate
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByOpenID" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -119,4 +119,8 @@
   <select id="countUserByPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
     select count(0) from g_user where phone = #{phone, jdbcType=VARCHAR}
   </select>
+
+  <update id="addUserScore" parameterType="java.lang.Long">
+    update g_user set point = point + #{point} where id = #{id, jdbcType=BIGINT}
+  </update>
 </mapper>

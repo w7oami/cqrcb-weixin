@@ -27,3 +27,16 @@ wx.ready(function() {
         imgUrl: imgUrl // 分享图标
     });
 });
+
+var onMenuShareTimeline = function() {
+    if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+        WeixinJSBridge.invoke('sendAppMessage', {
+            "title": "36氪",
+            "link": "http://zephyr.ittun.com",
+            "desc": "关注互联网创业",
+            "img_url": "http://zephyr.ittun.com/assets/images/apple-touch-icon.png"
+        }, function(res) {
+            alert(res.err_msg);
+        });
+    }
+}

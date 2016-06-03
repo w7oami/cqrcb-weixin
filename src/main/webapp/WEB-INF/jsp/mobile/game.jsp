@@ -30,7 +30,7 @@
                 <p>获得<i>999</i>积分</p>
                 <div class="sc_btn">
                     <a href="javascript:getBallList();"><img src="${path}/static/images/sc_btn1.png"></a>
-                    <a href=""><img src="${path}/static/images/sc_btn2.png"></a>
+                    <a href="javascript:onMenuShareTimeline();"><img src="${path}/static/images/sc_btn2.png"></a>
                 </div>
             </div>
         </div>
@@ -40,6 +40,10 @@
         <img src="${path}/static/images/time_01.png" style="display:none;">
         <img src="${path}/static/images/time_02.png" style="display:none;">
         <img src="${path}/static/images/time_03.png" style="display:block;">
+    </div>
+    <!-- 朋友圈 -->
+    <div class="start_name game_share" style="display:none;">
+        <img src="${path}/static/images/share.png">
     </div>
 </div>
 <%@ include file="/WEB-INF/jsp/common/import-js.jsp" %>

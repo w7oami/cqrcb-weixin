@@ -20,4 +20,6 @@ public interface GUserMapper {
     GUser selectByOpenID(String wxId);
 
     int countUserByPhone(String phone);
+
+    void addUserScore(GUser record);
 }

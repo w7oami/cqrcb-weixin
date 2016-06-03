@@ -6,7 +6,7 @@
 	var path = '${path}';
 
 	wx.config({
-		debug: false,
+		debug: true,
 		appId: "${jsApiConfig.appId}",
 		timestamp: ${jsApiConfig.timestamp},
 		nonceStr: "${jsApiConfig.nonceStr}",
@@ -18,7 +18,8 @@
 			"onMenuShareAppMessage",
 			"onMenuShareQQ",
 			"onMenuShareWeibo",
-			"onMenuShareQZone"
+			"onMenuShareQZone",
+			"shareTimeline"
 		]
 	});
 </script>

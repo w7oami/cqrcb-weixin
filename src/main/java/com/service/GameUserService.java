@@ -2,6 +2,7 @@ package com.service;
 
 import com.dao.GGameMapper;
 import com.dao.GUserMapper;
+import com.model.GGame;
 import com.model.GUser;
 import com.utils.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,5 +81,18 @@ public class GameUserService extends BaseService {
         }
 
         return list;
+    }
+
+    public String insertScore(Long userId, Integer score) {
+        GGame gGame = new GGame();
+        gGame.setPoint(Long.valueOf(score));
+        gGame.setUserid(userId);
+        gGameMapper.insert(gGame);
+
+        GUser user = new GUser();
+        user.setId(userId);
+        user.setPoint(Long.valueOf(score));
+        gUserMapper.addUserScore(user);
+        return score + "";
     }
 }
