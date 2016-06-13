@@ -6,7 +6,7 @@
 	var path = '${path}';
 
 	wx.config({
-		debug: true,
+		debug: false,
 		appId: "${jsApiConfig.appId}",
 		timestamp: ${jsApiConfig.timestamp},
 		nonceStr: "${jsApiConfig.nonceStr}",

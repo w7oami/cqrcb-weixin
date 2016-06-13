@@ -25,7 +25,7 @@
     <div class="start_name game_score" style="display:none;">
         <div class="sn_info">
             <img src="${path}/static/images/sc_bg.png" class="sn_i_mainpic">
-            <a href="javascript:" class="sn_i_close"><img src="${path}/static/images/nameclose.png"></a>
+            <a href="javascript:closeWin();" class="sn_i_close"><img src="${path}/static/images/nameclose.png"></a>
             <div class="sc_num">
                 <p>获得<i>999</i>积分</p>
                 <div class="sc_btn">

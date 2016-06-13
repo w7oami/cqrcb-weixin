@@ -30,7 +30,7 @@
 	<!-- 参数注解拦截器 -->
 	<mvc:annotation-driven>
 		<mvc:argument-resolvers>
-			<bean class="com.annotation.resolver.UserMethodArgumentResolver" />
+
 		</mvc:argument-resolvers>
 		<mvc:message-converters>
 			<bean class="com.common.UTF8StringHttpMessageConverter" />

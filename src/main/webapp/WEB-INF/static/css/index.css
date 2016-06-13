@@ -34,7 +34,8 @@ body { position: relative;}
 .startfont p { width: 90%; display: block; padding: 0 5%; position: absolute; left: 0; top: 0; color: #fff; font-size: 17px; line-height: 24px;}
 .startfont p i { display: block; padding-bottom: 10px;}
 .start_name { width: 100%; max-width: 640px; min-width: 320px; height: 2000px; position: absolute; top: 0; left: 0;background-color:rgba(0,0,0,0.5);}
-.sn_info { position: absolute; top: 10%; }
+.game_share img { position: absolute;  right: 0; top: 0; width: 40%;}
+.sn_info { position: absolute; top: 5%; }
 .sn_info .sn_i_mainpic { display: block; width: 85%; margin: 0 auto; }
 .sn_i_close { display: block; width: 6.2%; position: absolute; right: 12%; top: 0;}
 .sn_i_ip { width: 100%; height: auto;  position: absolute; left: 0; top: 40%; text-align: center;}
@@ -53,7 +54,7 @@ body { position: relative;}
 .mainbtn .mb_ctn .mb_title { width: 40%; margin-left: 20px;}
 .main .mainfont { position: relative; width: 100%;}
 .main .mainfont img { width: 100%; display: block; }
-.main .mainfont .mf_box { width: 100%; position: absolute; }
+.main .mainfont .mf_box { width: 100%; position: absolute;  }
 .main .mainfont p {  width: 90%; margin: 0 auto; font-size: 24px; color: #fff; line-height: 38px; padding-top:10px; }
 /*排行榜*/
 .rank { width: 100%; max-width: 640px; min-width: 320px; background: url(../images/rank_bg.gif) repeat-y; background-size: 100%; margin: 0 auto;}
@@ -81,6 +82,9 @@ body { position: relative;}
 	.gm_score { width: 50px; height: 40px; line-height: 48px; font-size: 22px; padding-left: 44px;}
 	.sn_i_ip input  { height: 22px; font-size: 12px; margin: 0 auto 5px;}
 	.mainbtn .mb_ctn a img { margin: 20px auto;}
-	.main .mainfont p { font-size: 16px; line-height: 28px;}
+	.main .mainfont p { font-size: 16px; line-height: 24px;}
 	.rank_list table td  { font-size: 13px;}
+	.st_link a { margin: 0 30px 0;}
+	.startfont p { font-size: 14px; line-height: 20px; top: -10px;}
+
 }

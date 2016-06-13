@@ -25,59 +25,47 @@
             <td class="50%">电话</td>
             <td class="30%">积分</td>
             </thead>
-            <tr>
-                <td>1</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>138****3344</td>
-                <td>2000</td>
-            </tr>
+
         </table>
-        <a href=""><img src="${path}/static/images/rank_more.png"></a>
+        <a href="javascript:queryList(100);"><img src="${path}/static/images/rank_more.png"></a>
     </div>
 </div>
 </body>
+<%@ include file="/WEB-INF/jsp/common/import-js.jsp" %>
+<script type="text/javascript">
+    $(function() {
+        queryList(10);
+    });
+
+    function queryList(number) {
+        $.showLoading('正在准备数据...');
+        $.ajax({
+            async:true,
+            url: path + "/cqrcb/getRankList",
+            type: "GET",
+            dataType: "html",
+            data: {number: number},
+            success: function(data){
+                $.hideLoading();
+                data = eval("(" + data + ")");
+                var html = "<thead><td class=\"20%\">排名</td><td class=\"50%\">电话</td><td class=\"30%\">积分</td></thead>";
+                for(var i=0; i<data.length; i++) {
+                    html += "<tr>";
+                    html += "<td>" + (i + 1) + "</td>";
+                    html += "<td>" + hidePhone(data[i].phone) + "</td>";
+                    html += "<td>" + data[i].point + "</td>";
+                    html += "</tr>";
+                }
+
+                $(".rank_list > table").html(html);
+            }
+        });
+    }
+
+    function hidePhone(phone) {
+        var s1 = phone.substring(0, 3);
+        var s2 = phone.substring(7, 11);
+        return s1 + "****" + s2;
+    }
+</script>
 </html>

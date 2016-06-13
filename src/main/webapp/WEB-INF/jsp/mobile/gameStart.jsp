@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <title></title>
 <link rel="stylesheet" href="${path}/static/css/index.css">
+<link rel="stylesheet" href="${path}/static/css/weui.min.css" />
+<link rel="stylesheet" href="${path}/static/css/jquery-weui.min.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <meta name="MobileOptimized" content="320">
@@ -14,7 +16,12 @@
     <div class="startbtn">
         <div class="stb_ctn">
             <p>剩余次数：${10 - gameCount}次</p>
-            <a href="${path}/cqrcb/game" class="st_start"><img src="${path}/static/images/start_01.png"></a>
+            <c:if test="${gameCount < 10}">
+                <a href="${path}/cqrcb/game" class="st_start"><img src="${path}/static/images/start_01.png"></a>
+            </c:if>
+            <c:if test="${gameCount >= 10}">
+                <a href="javascript:overEnd();" class="st_start"><img src="${path}/static/images/start_01.png"></a>
+            </c:if>
             <div class="st_link">
                 <a href="${path}/cqrcb/showRank"><img src="${path}/static/images/start_02.png"></a>
             </div>
@@ -28,7 +35,11 @@
 </div>
 </body>
 <%@ include file="/WEB-INF/jsp/common/import-js.jsp" %>
-
+<script type="text/javascript">
+    function overEnd() {
+        $.toast("您今天的游戏次数已用完", "cancel");
+    }
+</script>
 </html>
 
 

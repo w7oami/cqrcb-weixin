@@ -3,6 +3,8 @@ package com.dao;
 import com.dao.common.MyBatisMapper;
 import com.model.GUser;
 
+import java.util.List;
+
 @MyBatisMapper
 public interface GUserMapper {
     int deleteByPrimaryKey(Long id);
@@ -22,4 +24,6 @@ public interface GUserMapper {
     int countUserByPhone(String phone);
 
     void addUserScore(GUser record);
+
+    List<GUser> getRankList(Integer number);
 }

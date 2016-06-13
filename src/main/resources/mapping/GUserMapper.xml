@@ -123,4 +123,8 @@
   <update id="addUserScore" parameterType="java.lang.Long">
     update g_user set point = point + #{point} where id = #{id, jdbcType=BIGINT}
   </update>
+
+  <select id="getRankList" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <![CDATA[select t.* from G_USER t where rownum <= #{number} order by t.point desc]]>
+  </select>
 </mapper>

@@ -169,12 +169,30 @@ public class CqrcbController extends BaseController {
         if(null == user) {
             result.put("code", "userIsNull");
         } else {
-            int count = gameUserService.getUserGameNumber(openId);
-            gameUserService.insertScore(user.getId(), score);
-            result.put("count", count + "");
-            result.put("code", "ok");
-            result.put("score", score + "");
+            if(score > 700) {
+                result.put("code", "scoreIsMore");
+            } else {
+                int count = gameUserService.getUserGameNumber(openId);
+                gameUserService.insertScore(user.getId(), score);
+                result.put("count", count + "");
+                result.put("code", "ok");
+                result.put("score", score + "");
+            }
         }
         return new Gson().toJson(result);
+    }
+
+    @RequestMapping(value = "/cqrcb/getRankList")
+    @ResponseBody
+    public String getRankList(@RequestParam(value = "number") Integer number,
+                              HttpServletRequest request) {
+        List<GUser> list = null;
+        if(number == 10) {
+            list = gameUserService.getRankList(10);
+        } else {
+            list = gameUserService.getRankList(100);
+        }
+
+        return new Gson().toJson(list);
     }
 }

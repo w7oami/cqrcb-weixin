@@ -95,4 +95,8 @@ public class GameUserService extends BaseService {
         gUserMapper.addUserScore(user);
         return score + "";
     }
+
+    public List<GUser> getRankList(Integer number) {
+        return gUserMapper.getRankList(number);
+    }
 }

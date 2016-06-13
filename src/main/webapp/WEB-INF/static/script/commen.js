@@ -9,7 +9,15 @@ wx.ready(function() {
         title: title, // 分享标题
         desc: desc, // 分享描述
         link: link, // 分享链接
-        imgUrl: imgUrl // 分享图标
+        imgUrl: imgUrl, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            $(".start_name.game_share").hide();
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+            $(".start_name.game_share").hide();
+        }
     });
 
     //QQ
@@ -17,26 +25,37 @@ wx.ready(function() {
         title: title, // 分享标题
         desc: desc, // 分享描述
         link: link, // 分享链接
-        imgUrl: imgUrl // 分享图标
+        imgUrl: imgUrl, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            $(".start_name.game_share").hide();
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+            $(".start_name.game_share").hide();
+        }
     });
 
     //朋友圈
     wx.onMenuShareTimeline({
         title: title, // 分享标题
         link: link, // 分享链接
-        imgUrl: imgUrl // 分享图标
+        imgUrl: imgUrl, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            $(".start_name.game_share").hide();
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+            $(".start_name.game_share").hide();
+        }
     });
 });
 
 var onMenuShareTimeline = function() {
-    if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
-        WeixinJSBridge.invoke('sendAppMessage', {
-            "title": "36氪",
-            "link": "http://zephyr.ittun.com",
-            "desc": "关注互联网创业",
-            "img_url": "http://zephyr.ittun.com/assets/images/apple-touch-icon.png"
-        }, function(res) {
-            alert(res.err_msg);
-        });
-    }
+    $(".start_name.game_share").unbind("click");
+    $(".start_name.game_share").show();
+    $(".start_name.game_share").on("click", function() {
+        $(".start_name.game_share").hide();
+    });
 }

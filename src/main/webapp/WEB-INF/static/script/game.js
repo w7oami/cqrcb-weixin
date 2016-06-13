@@ -36,7 +36,7 @@ function getBallList() {
         success: function(data){
             $.hideLoading();
             ballList = eval("(" + data + ")");
-            number = data.length;
+            number = ballList.length;
             if(number > 0) {
                 i = 0;
                 time = 20;
@@ -78,12 +78,12 @@ function showBall() {
         i++;
 
         for(var key in map) {
-            var ball = "";
-            if(i%2 == 1) {
-                ball = "2";
+            var ball = i%5 + "";
+            if(ball == "0" || ball == "1") {
+                ball = "";
             }
             var left = Math.floor(Math.random()*220);
-            var speed = Math.floor(Math.random()*3) + 2;
+            var speed = Math.floor(Math.random()*3) + 1;
             var html = "<div class=\"gm_ballbox\" style=\"left:" + left + "px; top:" + (height - 260) + "px;\">";
             html += "<img src=\"" + path + "/static/images/gm_ball" + ball + ".png\" >";
             html += "</div>";
@@ -143,12 +143,22 @@ function updateScore() {
             $.hideLoading();
             data = eval("(" + data + ")");
             if("ok" == data.code) {
+                if(data.count == 10) {
+                    $(".start_name.game_score").find("a").eq(0).replace("<a href=\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7ca575640689ee53&redirect_uri=http://zhouji.ittun.com/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect\"><img src=\"" + path + "/static/images/rank_01.png\"></a>");
+                }
                 $(".start_name.game_score").find("div.sc_num").find("p").find("i").html(data.score);
                 $(".start_name.game_score").show();
             } else if("userIsNull" == data.code) {
                 $.toast("用户不存在!", "cancel");
                 window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7ca575640689ee53&redirect_uri=http://zhouji.ittun.com/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect";
+            } else if("scoreIsMore" == data.code) {
+                $.toast("用户分数异常！!", "cancel");
+                window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7ca575640689ee53&redirect_uri=http://zhouji.ittun.com/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect";
             }
         }
     });
 };
+
+function closeWin() {
+    $(".start_name.game_score").hide();
+}
