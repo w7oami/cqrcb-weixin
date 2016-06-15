@@ -1,6 +1,6 @@
 wx.ready(function() {
-    var title = "重庆农村商业银行八周年行庆客户回馈活动";
-    var desc = "8周年重庆农村商业银行玩游戏抽好礼";
+    var title = "重庆农村商业银行成立八周年客户回馈活动";
+    var desc = "重庆农商行成立八周年，惊喜大礼享不停！赶快参与“点气球 抽大奖”客户回馈活动，iPhone 6s plus等多重好礼等您带回家！";
     var link = home_url;
     var imgUrl = "";
 

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title></title>
+<title>点气球 抽大奖</title>
 <link rel="stylesheet" href="${path}/static/css/index.css">
 <link rel="stylesheet" href="${path}/static/css/weui.min.css" />
 <link rel="stylesheet" href="${path}/static/css/jquery-weui.min.css" />
