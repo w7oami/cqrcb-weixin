@@ -1,7 +1,7 @@
 wx.ready(function() {
-    var title = "重庆农村商业银行8周年";
+    var title = "重庆农村商业银行八周年行庆客户回馈活动";
     var desc = "8周年重庆农村商业银行玩游戏抽好礼";
-    var link = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7ca575640689ee53&redirect_uri=http://zhouji.ittun.com/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect";
+    var link = home_url;
     var imgUrl = "";
 
     //微信朋友

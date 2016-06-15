@@ -53,8 +53,8 @@ public class GameUserService extends BaseService {
         int max=20;
         int min=5;
 
-        int count = 35;
-        int sum = 500;
+        int count = 50;
+        int sum = 700;
 
         int _s = 0;
 

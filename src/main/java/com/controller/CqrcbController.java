@@ -140,7 +140,7 @@ public class CqrcbController extends BaseController {
         String openId = (String)request.getAttribute("openid");
         int count = gameUserService.getUserGameNumber(openId);
         List<Map<String, Object>> list = null;
-        if(count < 10) {
+        if(count < 3) {
             list = gameUserService.getRandomPoint(openId);
         } else {
             list = new ArrayList<Map<String, Object>>();
@@ -169,7 +169,7 @@ public class CqrcbController extends BaseController {
         if(null == user) {
             result.put("code", "userIsNull");
         } else {
-            if(score > 700) {
+            if(score > 1000) {
                 result.put("code", "scoreIsMore");
             } else {
                 int count = gameUserService.getUserGameNumber(openId);
@@ -194,5 +194,15 @@ public class CqrcbController extends BaseController {
         }
 
         return new Gson().toJson(list);
+    }
+
+    @RequestMapping(value = "/cqrcb/ruleIndex")
+    public String ruleIndex() {
+        return "mobile/rule_index";
+    }
+
+    @RequestMapping(value = "/cqrcb/ruleView")
+    public String ruleView() {
+        return "mobile/rule";
     }
 }

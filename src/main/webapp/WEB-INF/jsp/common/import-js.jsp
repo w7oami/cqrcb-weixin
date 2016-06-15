@@ -4,6 +4,8 @@
 <script type="text/javascript" src="${path}/static/script/commen.js"></script>
 <script type="text/javascript">
 	var path = '${path}';
+	var appId = '${appId}';
+	var home_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${basePath}/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect";
 
 	wx.config({
 		debug: false,
@@ -21,5 +23,9 @@
 			"onMenuShareQZone",
 			"shareTimeline"
 		]
+	});
+
+	$(function() {
+		$("div").eq(0).height(window.innerHeight);
 	});
 </script>

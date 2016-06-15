@@ -1,6 +1,7 @@
 package com.common.filter;
 
 import com.common.Constants;
+import com.utils.WeiXinConfig;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
 import org.springframework.util.StringUtils;
@@ -50,7 +51,7 @@ public class SetCommonDataInterceptor extends HandlerInterceptorAdapter {
             request.setAttribute(Constants.CONTEXT_PATH, request.getContextPath());
         }
         if (request.getAttribute(Constants.BASE_PATH) == null) {
-        	String base_path = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/";
+        	String base_path = request.getScheme()+"://"+request.getServerName()+request.getContextPath()+"/";
             request.setAttribute(Constants.BASE_PATH, base_path);
         }
         if (request.getAttribute(Constants.CURRENT_URL) == null) {
@@ -61,6 +62,9 @@ public class SetCommonDataInterceptor extends HandlerInterceptorAdapter {
         }
         if (request.getAttribute(Constants.BACK_URL) == null) {
             request.setAttribute(Constants.BACK_URL, extractBackURL(request));
+        }
+        if(request.getAttribute(Constants.AppId) == null) {
+            request.setAttribute(Constants.AppId, WeiXinConfig.AppID);
         }
 
         return true;

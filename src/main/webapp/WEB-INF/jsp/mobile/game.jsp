@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title></title>
+<title>点气球 抽大奖</title>
 <link rel="stylesheet" href="${path}/static/css/index.css">
 <link rel="stylesheet" href="${path}/static/css/weui.min.css" />
 <link rel="stylesheet" href="${path}/static/css/jquery-weui.min.css" />
@@ -32,6 +32,7 @@
                     <a href="javascript:getBallList();"><img src="${path}/static/images/sc_btn1.png"></a>
                     <a href="javascript:onMenuShareTimeline();"><img src="${path}/static/images/sc_btn2.png"></a>
                 </div>
+                <p class="sc_numlink"><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${basePath}/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect">返回首页</a></p>
             </div>
         </div>
     </div>

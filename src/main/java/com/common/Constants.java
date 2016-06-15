@@ -1,5 +1,7 @@
 package com.common;
 
+import com.utils.WeiXinConfig;
+
 public class Constants {
 	/*当前登录用户*/
 	public static final String CURRENT_USER = "user";
@@ -21,4 +23,7 @@ public class Constants {
 	public static final String BASE_PATH = "basePath";
 	/*当前字符集*/
 	public static final String ENCODING = "UTF-8";
+
+	/* 微信APPID */
+	public static final String AppId = "appId";
 }

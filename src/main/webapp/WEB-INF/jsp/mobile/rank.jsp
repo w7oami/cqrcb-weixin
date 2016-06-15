@@ -14,7 +14,7 @@
 <div class="rank">
     <div class="rank_main">
         <div class="rm_btn">
-            <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7ca575640689ee53&redirect_uri=http://zhouji.ittun.com/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect"><img src="${path}/static/images/rank_01.png"></a>
+            <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${basePath}/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect"><img src="${path}/static/images/rank_01.png"></a>
         </div>
         <img src="${path}/static/images/rank_main.jpg" class="rm_main">
     </div>

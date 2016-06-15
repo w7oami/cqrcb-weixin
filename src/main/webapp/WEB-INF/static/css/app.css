@@ -1,0 +1,186 @@
+html, body {
+    position: relative;
+    height: 100%;
+}
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: none;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    overflow: hidden;
+}
+.swiper-slide.bgcolor{
+    background: #199347;
+}
+
+.hideDiv{
+    display: none;
+}
+.pimg{
+    position: absolute;
+}
+.cimg{
+    left: 0px;
+    right:0px;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    position: absolute;
+}
+.logoimg{
+    left: 0px;
+    right:0px;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    position: absolute;
+    z-index: -1111;
+}
+.btn{
+    width:34.4%;
+    margin:45% 2% 1% 2%;
+    z-index:99998;
+}
+.bimg{
+    bottom:0px;
+}
+.vcimg{
+  margin: auto;  
+  top: 0; left: 0; bottom: 0; right: 0;  
+}
+.csvg{
+    left: 0px;
+    right:0px;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    position: absolute;
+}
+.still{
+  animation-iteration-count:1800;
+  -webkit-animation-direction:alternate; /* Safari 和 Chrome */ 
+}
+.one
+{
+animation-delay:0.1s;
+-webkit-animation-delay:0.1s;
+animation-duration: 2.5s;
+-webkit-animation-duration: 2.5s;
+-webkit-animation-direction:alternate; /* Safari 和 Chrome */ 
+}
+.two
+{
+animation-delay:0.7s;
+-webkit-animation-delay:0.7s;
+animation-duration: 2.5s;
+-webkit-animation-duration: 2.5s;
+-webkit-animation-direction:alternate; /* Safari 和 Chrome */ 
+}
+.three
+{
+animation-delay:1.2s;
+-webkit-animation-delay:1.2s;
+animation-duration: 2.5s;
+-webkit-animation-duration: 2.5s;
+-webkit-animation-direction:alternate; /* Safari 和 Chrome */ 
+}
+.four
+{
+animation-delay:1.7s;
+-webkit-animation-delay:1.7s;
+animation-duration: 2.5s;
+-webkit-animation-duration: 2.5s;
+-webkit-animation-direction:alternate; /* Safari 和 Chrome */ 
+}
+.slow
+{
+animation-delay:2.2s;
+-webkit-animation-delay:2.2s;
+animation-duration: 2.5s;
+-webkit-animation-duration: 2.5s;
+-webkit-animation-direction:alternate; /* Safari 和 Chrome */ 
+}
+.six
+{
+animation-delay:2.7s;
+-webkit-animation-delay:2.7s;
+animation-duration: 2.5s;
+-webkit-animation-duration: 2.5s;
+-webkit-animation-direction:alternate; /* Safari 和 Chrome */ 
+}
+.ten
+{
+animation-delay:5s;
+-webkit-animation-delay:5s;
+animation-duration: 2.5s;
+-webkit-animation-duration: 2.5s;
+-webkit-animation-direction:alternate; /* Safari 和 Chrome */ 
+}
+.loading {
+  margin: 100px auto;
+  width: 50px;
+  height: 60px;
+  text-align: center;
+  font-size: 10px;
+}
+.loading > div {
+  background-color: #FFFFFF;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+.loading .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+.loading .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+.loading .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+.loading .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
