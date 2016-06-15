@@ -1,8 +1,8 @@
 wx.ready(function() {
     var title = "重庆农村商业银行成立八周年客户回馈活动";
-    var desc = "重庆农商行成立八周年，惊喜大礼享不停！赶快参与“点气球 抽大奖”客户回馈活动，iPhone 6s plus等多重好礼等您带回家！";
+    var desc = "重庆农商行成立八周年，“点气球 抽大奖”客户回馈活动，iPhone 6s plus等多重好礼等您带回家！";
     var link = home_url;
-    var imgUrl = "";
+    var imgUrl = basePath + "/static/images/rule_02.jpg";
 
     //微信朋友
     wx.onMenuShareAppMessage({
@@ -38,7 +38,7 @@ wx.ready(function() {
 
     //朋友圈
     wx.onMenuShareTimeline({
-        title: title, // 分享标题
+        title: "重庆农商行成立八周年，“点气球 抽大奖”客户回馈活动，iPhone 6s plus等多重好礼等您带回家！", // 分享标题
         link: link, // 分享链接
         imgUrl: imgUrl, // 分享图标
         success: function () {

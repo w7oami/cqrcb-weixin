@@ -5,8 +5,25 @@ var i = 0;
 var ballList = null;
 var time = 0;
 var score = 0;
+var isPlay = false;
 $(function() {
     getBallList();
+    $("#music").on("touchstart", function(e) {
+        if(isPlay) {
+            isPlay = false;
+            $("#music audio").get(0).pause();
+            $("#music div.play").addClass("musicno");
+            $("#music span").html("开启");
+        } else {
+            isPlay = true;
+            $("#music audio").get(0).play();
+            $("#music div.play").removeClass("musicno");
+            $("#music span").html("关闭");
+        }
+    });
+    $("#music audio").get(0).play();
+    $("#music span").html("关闭");
+    isPlay = true;
 });
 
 function countDown(count_time) {

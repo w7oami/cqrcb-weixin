@@ -36,6 +36,7 @@
     <img src="${path}/static/images/rule_03.gif">
 </div>
 </div>
+<%@ include file="/WEB-INF/jsp/common/import-js.jsp" %>
 </body>
 </html>
 

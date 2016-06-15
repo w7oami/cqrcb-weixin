@@ -28,7 +28,7 @@
             <section style="border-width: 2.6em; border-style: solid; border-color: rgb(255, 255, 255) transparent; margin: -5.6em 1.65em; height: 0px; white-space: nowrap;"></section>
             <section class="wxqq-borderTopColor wxqq-borderBottomColor" style="border-width: 2.2em; border-style: solid; border-color: rgb(245, 66, 66) transparent; margin: 0.9em 2.7em; height: 0px; vertical-align: middle; white-space: nowrap;">
                 <section style="padding: 0px 1em; color: white; line-height: 1.5em; overflow: hidden; margin-top: -1.5em; white-space: nowrap; max-height: 4em;background: rgb(245, 66, 66)!important;">
-                    重庆农商行成立八周年
+                    重庆农村商业银行成立八周年客户回馈活动
                     <br/>参与活动iPhone 6s plus等多重好礼等您来抢！
                 </section>
             </section>
@@ -85,7 +85,7 @@
             <strong>一等奖领取：</strong>我行客服热线023-966866将与中奖用户确认领奖地址（就近的支行营业部），中奖用户需于2016年8月31日前，携带本人身份证原件前往约定地点领取。
         </p>
         <p>
-            <strong>二、三等奖领取：</strong>：每周获奖榜公布后，我行将通过客服热线023-966866与中奖用户进行信息确认。“江渝惠”商城积分将在中奖名单公布后7个工作日内，发放到中奖者的商城用户ID。如中奖用户尚未注册，我行将自动为您注册商城ID，请您按短信提示登录重庆农商行“江渝惠”商城，修改用户ID初始密码，即可任意选购，享受积分等额抵价优惠。<span style="color: rgb(255, 0, 0);">1个商城积分=1元现金</span>。
+            <strong>二、三等奖领取：</strong>：每周获奖榜公布后，我行将通过客服热线023-966866与中奖用户进行信息确认。“江渝惠”商城积分将在中奖名单公布后7个工作日内，发放到中奖者的商城用户ID。如中奖用户尚未注册，我行将自动为您注册”江渝惠“商城ID。请您登录”重庆农商行“app，进入”江渝惠“消费服务平台，点击“江渝惠账号登录”，修改用户ID初始密码，即可将积分用于惠团购、码上付、精品商城及电子商城<a href="http://cq.o2obill.com" >cq.o2obill.com</a>的现金结算。<span style="color: rgb(255, 0, 0);">1个商城积分=1元人民币</span>。
         </p>
         <p>
             活动奖品不折换现金，不单独开具发票，奖品质量及售后服务概由生产商及供应商负责。
@@ -98,6 +98,7 @@
     </div>
 
 </div>
+<%@ include file="/WEB-INF/jsp/common/import-js.jsp" %>
 </body>
 </html>
 

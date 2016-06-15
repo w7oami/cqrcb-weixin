@@ -4,6 +4,7 @@
 <script type="text/javascript" src="${path}/static/script/commen.js"></script>
 <script type="text/javascript">
 	var path = '${path}';
+	var basePath = '${basePath}';
 	var appId = '${appId}';
 	var home_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${basePath}/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect";
 

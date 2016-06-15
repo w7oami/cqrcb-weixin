@@ -12,6 +12,15 @@
 </head>
 <body>
 <div class="gm_box">
+    <!--音乐 start-->
+    <div id="music">
+        <div class="music play"></div>
+        <span>开启</span>
+        <div class="musics">
+        </div>
+        <audio src="${path}/static/music.mp3" id="mp3" loop="loop" autoplay="autoplay"></audio>
+    </div>
+
     <div class="gm_ball">
 
     </div>
