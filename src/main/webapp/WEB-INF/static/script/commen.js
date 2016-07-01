@@ -1,7 +1,7 @@
 wx.ready(function() {
     var title = "重庆农村商业银行成立八周年客户回馈活动";
     var desc = "重庆农商行成立八周年，“点气球 抽大奖”客户回馈活动，iPhone 6s plus等多重好礼等您带回家！";
-    var link = home_url;
+    var link = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appId + "&redirect_uri=" + basePath + "/cqrcb/" + _url + "&response_type=code&scope=snsapi_base#wechat_redirect";
     var imgUrl = basePath + "/static/images/rule_02.jpg";
 
     //微信朋友

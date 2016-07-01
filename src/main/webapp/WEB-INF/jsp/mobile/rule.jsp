@@ -12,7 +12,7 @@
     p{text-align:justify;}
     .main { max-width: 640px; min-width: 320px; margin: 0 auto;}
     .main div { width: 96%; padding: 0 2%;}
-    .main section { font-size: 11px; }
+    .main section { font-size: 14px; }
     .main p { font-size: 14px;}
     .main span { font-size: 14px;}
     .main a { font-size: 16px;}
@@ -28,8 +28,8 @@
             <section style="border-width: 2.6em; border-style: solid; border-color: rgb(255, 255, 255) transparent; margin: -5.6em 1.65em; height: 0px; white-space: nowrap;"></section>
             <section class="wxqq-borderTopColor wxqq-borderBottomColor" style="border-width: 2.2em; border-style: solid; border-color: rgb(245, 66, 66) transparent; margin: 0.9em 2.7em; height: 0px; vertical-align: middle; white-space: nowrap;">
                 <section style="padding: 0px 1em; color: white; line-height: 1.5em; overflow: hidden; margin-top: -1.5em; white-space: nowrap; max-height: 4em;background: rgb(245, 66, 66)!important;">
-                    重庆农村商业银行成立八周年客户回馈活动
-                    <br/>参与活动iPhone 6s plus等多重好礼等您来抢！
+                    重庆农村商业银行成立八周年
+                    <br/>客户回馈活动
                 </section>
             </section>
         </section>
@@ -52,7 +52,7 @@
             你玩游戏 我送好礼
         </p>
         <p>
-            登录“重庆农村商业银行”微信号，即可参加“点气球 抽大奖”在线小游戏。<br>点击“开始游戏”，填写个人姓名和手机号码，即可参加游戏，每人每天限玩3次。每次参与游戏，即可获得抽奖机会哦。
+            登录“重庆农村商业银行”微信号，填写个人姓名和手机号码，即可参加在线小游戏，更可获得抽奖机会。每人每天限玩3次。
         </p>
         <strong><span class="wxqq-bg" style="padding: 4px 10px; color: rgb(255, 255, 255); font-family: 微软雅黑,Microsoft YaHei; margin-right: 8px; -ms-word-wrap: break-word !important; max-width: 100%; background-color: rgb(245, 66, 66);">活动奖品</span></strong>
         <p style="margin:20px 0px 2px 0px;">
@@ -75,7 +75,7 @@
         </p>
         <strong><span class="wxqq-bg" style="padding: 4px 10px; color: rgb(255, 255, 255); font-family: 微软雅黑,Microsoft YaHei; margin-right: 8px; -ms-word-wrap: break-word !important; max-width: 100%; background-color: rgb(245, 66, 66);">抽奖规则</span></strong>
         <p>
-            用户点击“开始游戏”，填写个人姓名和手机号码参加游戏。参与游戏的次数越多，获奖几率就越大哦，每人每天限玩3次游戏。
+            用户点击“开始游戏”，填写个人姓名和手机号码参加游戏。参与游戏的次数越多，获奖几率就越大，每人每天限玩3次游戏。
         </p>
         <p>
             系统将统计一周内所有游戏玩家信息，随机抽取中奖玩家。中奖名单将于每周抽奖后在重庆农商行官方微信和门户网站（www.cqrcb.com）进行公布。每期中奖名单公布后，我行将通过客服热线023-966866与中奖用户进行信息确认。
@@ -85,7 +85,7 @@
             <strong>一等奖领取：</strong>我行客服热线023-966866将与中奖用户确认领奖地址（就近的支行营业部），中奖用户需于2016年8月31日前，携带本人身份证原件前往约定地点领取。
         </p>
         <p>
-            <strong>二、三等奖领取：</strong>：每周获奖榜公布后，我行将通过客服热线023-966866与中奖用户进行信息确认。“江渝惠”商城积分将在中奖名单公布后7个工作日内，发放到中奖者的商城用户ID。如中奖用户尚未注册，我行将自动为您注册”江渝惠“商城ID。请您登录”重庆农商行“app，进入”江渝惠“消费服务平台，点击“江渝惠账号登录”，修改用户ID初始密码，即可将积分用于惠团购、码上付、精品商城及电子商城<a href="http://cq.o2obill.com" >cq.o2obill.com</a>的现金结算。<span style="color: rgb(255, 0, 0);">1个商城积分=1元人民币</span>。
+            <strong>二、三等奖领取：</strong>：每周获奖榜公布后，我行将通过客服热线023-966866与中奖用户进行信息确认。“江渝惠”商城积分将在中奖名单公布后7个工作日内，发放到中奖者的商城用户ID。如中奖用户尚未注册，我行将自动为您注册“江渝惠”商城ID。请您登录“重庆农商行”app，进入“江渝惠”消费服务平台，点击“江渝惠账号登录”，修改用户ID初始密码，即可将积分用于惠团购、码上付、精品商城及电子商城<a href="http://cq.o2obill.com" >cq.o2obill.com</a>的现金结算。<span style="color: rgb(255, 0, 0);">1个商城积分=1元人民币</span>。
         </p>
         <p>
             活动奖品不折换现金，不单独开具发票，奖品质量及售后服务概由生产商及供应商负责。

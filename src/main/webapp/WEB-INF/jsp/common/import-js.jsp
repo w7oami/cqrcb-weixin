@@ -6,6 +6,7 @@
 	var path = '${path}';
 	var basePath = '${basePath}';
 	var appId = '${appId}';
+	var _url = '${_url}';
 	var home_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${basePath}/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect";
 
 	wx.config({

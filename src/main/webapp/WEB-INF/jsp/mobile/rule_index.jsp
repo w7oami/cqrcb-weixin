@@ -16,7 +16,7 @@
     button{height:50px;}
     .am-g { margin: 15px auto;}
     .am-g a { display: block; width: 60%; background-color: #dd514c; border-radius: 100px; padding: .5em 1em;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-weight: 400;
         line-height: 1.2;
         text-align: center;
@@ -27,11 +27,11 @@
 <body>
 <div class="main">
     <img src="${path}/static/images/rule_01.gif">
-    <img src="${path}/static/images/rule_02.jpg">
+    <img src="${path}/static/images/rule_02.jpg" style="display:block; margin:0 auto; width:90%;">
     <div class="am-g">
-        <a href="${path}/cqrcb/ruleView" type="submit">活动规则</a>
-        <a href="http://h5.yoois.com/" type="submit">看重庆农商行荣耀8载</a>
+        <a href="http://h5.yoois.com/" type="submit">看重庆农商行发展历程</a>
         <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${basePath}/cqrcb/active&response_type=code&scope=snsapi_base#wechat_redirect" type="submit">点气球 抽大奖</a>
+        <a href="${path}/cqrcb/ruleView" type="submit">活动规则</a>
     </div>
     <img src="${path}/static/images/rule_03.gif">
 </div>

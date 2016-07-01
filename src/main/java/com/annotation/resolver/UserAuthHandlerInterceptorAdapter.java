@@ -29,6 +29,12 @@ public class UserAuthHandlerInterceptorAdapter extends HandlerInterceptorAdapter
             return true;
         }
 
+        if(request.getServletPath().indexOf("/rule") >= 0) {
+            request.setAttribute("_url", "ruleIndex");
+        } else {
+            request.setAttribute("_url", "active");
+        }
+
         if(request.getServletPath().indexOf(".jsp") > 0) {
             return true;
         }
